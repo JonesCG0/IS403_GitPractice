@@ -1,0 +1,14 @@
+Purpose of a network? 
+    Transport 1s and 0s, computers to talk to one another.
+
+What is the purpose of a layerted networking model?
+    Division of layers and responsibilities.
+
+What are some other places where staards make things better or worse?
+    Church, 
+
+TCP Looks at the size of the request to determine the number of splits.
+IP looks at the destination to figure out the next hop.
+Ethernet make sure the line is clear then transmits the packet.
+Routers turns and burns
+Webserver and looks for the resource

@@ -1,0 +1,114 @@
+import pandas as pd
+import numpy as np
+import matplotlib as ply
+from scipy import stats
+from scipy.stats import iqr
+import matplotlib.pyplot as plt
+
+
+df = "data_frame"
+column = "hello"
+
+
+
+
+# Subset the data
+planes = planes[(planes["Price"] > lower) & (planes["Price"] < upper)]
+print(planes["Price"].describe())
+
+#Find Missing Data
+print(df.isna().sum())
+
+# Mean
+print('Mean:', np.mean(df["column"]))
+
+# Median
+print('Median:', np.median(df["column"]))
+
+# Mode
+stats.mode('Mode:', df["column"], keepdims=True)
+
+# Variance
+np.var(column['sleep_total'], Ddof=1)
+
+# Standard Deviation
+np.sqrt(np.var(column['column'], ddof-1))
+np.std(column['column'], Ddof=1)
+
+# Range
+data_range = np.max(df["column"]) - np.min(df["column"])
+print("Range:", data_range)
+
+
+# Mean absolute deviation
+Dists = column['column'] - np.mean(column['column'])
+np.mean(np.abs(dists))
+
+# Quantiles
+np.quantile(df['column'], 0.5)
+
+ 
+plt.boxplot(df['column'])
+plt.show()
+
+
+np.quantile(df['column'], np.linspace(0,1,5))
+
+#IQR
+Q1 = np.percentile(df["column"].dropna(), 25)  # 25th percentile
+Q3 = np.percentile(df["column"].dropna(), 75)  # 75th percentile
+IQR = Q3 - Q1
+
+print("IQR:", IQR)
+
+# Calculate the thresholds
+upper = Q3 + (1.5 * IQR)
+lower = Q1 - (1.5 * IQR)
+
+# If you have less than 5% of data as outliers, you can remove them
+
+
+df['column'].describe()
+
+
+# Print variance and sd of co2_emission for each food_category
+print(df.groupby('column1')['column2'].agg([np.var, np.std]))
+# Create histogram of co2_emission for food_category 'beef'
+df[df['column'] == 'item']['column2'].hist()
+plt.show()
+# Create histogram of co2_emission for food_category 'eggs'
+plt.figure()
+df[df['column1'] == 'item']['column2'].hist()
+plt.show()
+
+
+def data_cleaning():
+    # Check Data
+    df.info()              # column types & missing values
+    df.isna().sum()        # count missing values per column
+    df.describe(include="all")  # summary stats for numeric & categorical
+
+    # Handle Missing Values
+    df["col"].fillna(df["col"].median(), inplace=True)   # fill with median
+    df["col"].fillna("Unknown", inplace=True)            # fill categorical with string
+    df.dropna(subset=["col"], inplace=True)              # drop rows with NA in col
+
+    # Remove Duplicates
+    df.drop_duplicates(inplace=True)                     # drop duplicate rows
+
+    # Clean Text Data
+    df["col"] = df["col"].str.strip()      # remove spaces
+    df["col"] = df["col"].str.lower()      # lowercase
+    df["col"] = df["col"].str.replace(r"[^a-zA-Z0-9 ]", "", regex=True)  # remove symbols
+
+    # Convert Data Types
+    df["date_col"] = pd.to_datetime(df["date_col"])    # convert to datetime
+    df["num_col"] = pd.to_numeric(df["num_col"], errors="coerce")  # force numeric
+    df["cat_col"] = df["cat_col"].astype("category")    # convert to category
+
+
+
+
+
+
+    return df   
